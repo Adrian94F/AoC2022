@@ -15,7 +15,7 @@ void check_calories() {
     }
 }
 
-int main() {
+int day1() {
     ifstream input("./day1.txt");
     if (!input.is_open()) {
         cout << "Unable to open file";
