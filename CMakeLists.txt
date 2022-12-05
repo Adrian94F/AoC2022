@@ -13,9 +13,10 @@ file(COPY data/
         DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 set(SRC_LIST
+        src/main.cpp
         src/day1.cpp
         src/day2.cpp
-        src/main.cpp)
+        src/day3.cpp)
 
 include_directories(src)
 add_library(${PROJECT_NAME}-lib ${SRC_LIST})
