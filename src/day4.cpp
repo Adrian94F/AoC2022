@@ -10,7 +10,7 @@ int day4() {
         return -1;
     }
 
-    auto pairs_containing_other = 0;
+    auto containing_pairs = 0;
     auto overlapping_pairs = 0;
     string line;
     while (getline(input, line)) {
@@ -21,21 +21,20 @@ int day4() {
         auto r1_delimiter = range1.find(range_delimiter);
         auto r2_delimiter = range2.find(range_delimiter);
         auto r1_0 = stoi(range1.substr(0, r1_delimiter));
-        auto r1_1 = stoi(range1.substr(r1_delimiter + range_delimiter.size(), range1.length()));
+        auto r1_1 = stoi(range1.substr(r1_delimiter + range_delimiter.length(), range1.length()));
         auto r2_0 = stoi(range2.substr(0, r2_delimiter));
-        auto r2_1 = stoi(range2.substr(r2_delimiter + range_delimiter.size(), range2.length()));
+        auto r2_1 = stoi(range2.substr(r2_delimiter + range_delimiter.length(), range2.length()));
 
         if ((r1_0 <= r2_0 and r1_1 >= r2_1) or (r1_0 >= r2_0 and r1_1 <= r2_1)) {
-            pairs_containing_other++;
+            containing_pairs++;
         }
-
         if (not(r1_0 > r2_1 or r1_1 < r2_0)) {
             overlapping_pairs++;
         }
     }
     input.close();
 
-    cout << "Pairs containing other pair: " << pairs_containing_other << endl;
+    cout << "Containing pairs: " << containing_pairs << endl;
     cout << "Overlapping pairs: " << overlapping_pairs << endl;
     return 0;
 }
