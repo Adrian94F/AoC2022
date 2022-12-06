@@ -1,6 +1,3 @@
-//
-// Created by luxoft on 05/12/22.
-//
 #include "day1.cpp"
 #include "day2.cpp"
 #include "day3.cpp"

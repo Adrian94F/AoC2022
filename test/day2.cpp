@@ -1,6 +1,3 @@
-//
-// Created by luxoft on 05/12/22.
-//
 #include <gtest/gtest.h>
 #include "../src/day2.cpp"
 

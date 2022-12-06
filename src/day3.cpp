@@ -1,7 +1,3 @@
-//
-// Created by luxoft on 05/12/22.
-//
-
 #include <iostream>
 #include <fstream>
 #include <set>
