@@ -2,13 +2,15 @@
 #include "day2.cpp"
 #include "day3.cpp"
 #include "day4.cpp"
+#include "day5.cpp"
 
 int main() {
     auto functions = {
             day1,
             Day2::run,
             day3,
-            day4
+            day4,
+            day5
     };
     /*for (auto f : functions) {
         f();
