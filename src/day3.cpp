@@ -5,8 +5,19 @@
 #include <iostream>
 #include <fstream>
 #include <set>
+#include <list>
+#include <vector>
 
 using namespace std;
+
+int get_prio(char c) {
+    if (islower(c)) {
+        return c - 'a' + 1;
+    }
+    else {
+        return c - 'A' + 27;
+    }
+}
 
 int day3() {
     ifstream input("./day3.txt");
@@ -15,7 +26,10 @@ int day3() {
         return -1;
     }
 
-    auto priorities_sum = 0;
+    auto priorities_sum_1 = 0;
+    auto priorities_sum_2 = 0;
+    auto group_counter = 0;
+    list<string> group = {"", "", ""};
     string line;
     while (getline(input, line)) {
         auto mid = line.length() / 2;
@@ -32,16 +46,41 @@ int day3() {
             }
         }
         for (auto c : common) {  // calculate item's priority
-            if (islower(c)) {
-                priority += c - 'a' + 1;
+            priority += get_prio(c);
+        }
+        priorities_sum_1 += priority;  // sum of priorities
+
+        group.pop_front();  // remove 1st element
+        group.push_back(line);
+        if (group_counter % 3 == 0) {
+            vector rucksacks (group.begin(), group.end());
+            if (rucksacks[0].empty()) {
+                continue;
             }
-            else {
-                priority += c - 'A' + 27;
+            auto it = group.begin();
+            auto found = false;
+            for (auto c0 : rucksacks[0]) {  // find shared items in 3 rucksacks
+                for (auto c1 : rucksacks[1]) {
+                    for (auto c2 : rucksacks[2]) {
+                        if (c0 == c1 && c1 == c2) {
+                            priorities_sum_2 += get_prio(c0);
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (found) {
+                        break;
+                    }
+                }
+                if (found) {
+                    break;
+                }
             }
         }
-        priorities_sum += priority;  // sum of priorities
+        group_counter++;
     }
-    cout << "Sum of priorities of shared items: " << priorities_sum << endl;
+    cout << "Sum of priorities of shared items: " << priorities_sum_1 << endl;
+    cout << "Sum of priorities of shared items in groups of 3: " << priorities_sum_2 << endl;
     input.close();
     return 0;
 }
