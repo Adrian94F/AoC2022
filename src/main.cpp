@@ -5,6 +5,7 @@
 #include "day5.cpp"
 #include "day6.cpp"
 #include "day7.cpp"
+#include "day8.cpp"
 
 int main() {
     auto functions = {
@@ -14,7 +15,8 @@ int main() {
             day4,
             day5,
             day6,
-            day7
+            day7,
+            day8
     };
     /*for (auto f : functions) {
         f();
