@@ -6,6 +6,9 @@
 #include "day6.cpp"
 #include "day7.cpp"
 #include "day8.cpp"
+#include "day9.cpp"
+
+#define LAST_ONLY true
 
 int main() {
     auto functions = {
@@ -16,10 +19,19 @@ int main() {
             day5,
             day6,
             day7,
-            day8
+            day8,
+            day9
     };
-    /*for (auto f : functions) {
-        f();
-    }*/
+
+#if LAST_ONLY
     (*rbegin(functions))(); // run last possible day
+#else
+    auto idx = 1;
+    for (auto f : functions) {
+        cout << endl << "Day " << idx++ << endl;
+        f();
+    }
+#endif
+
+    return 0;
 }
