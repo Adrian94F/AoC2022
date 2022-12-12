@@ -8,6 +8,7 @@
 #include "day8.cpp"
 #include "day9.cpp"
 #include "day10.cpp"
+#include "day11.cpp"
 
 #define LAST_ONLY true
 
@@ -22,7 +23,8 @@ int main() {
             day7,
             day8,
             day9,
-            day10
+            day10,
+            day11
     };
 
 #if LAST_ONLY
