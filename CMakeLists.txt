@@ -22,7 +22,8 @@ set(SRC_LIST
         src/day6.cpp
         src/day7.cpp
         src/day8.cpp
-        src/day9.cpp)
+        src/day9.cpp
+        src/day10.cpp)
 
 include_directories(src)
 add_library(${PROJECT_NAME}-lib ${SRC_LIST})
